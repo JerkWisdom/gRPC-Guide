@@ -44,13 +44,13 @@ IF(CMAKE_SYSTEM_NAME MATCHES "Windows")
 	
 	EXECUTE_PROCESS(COMMAND  
         ${CMAKE_SOURCE_DIR}/thirdparty/gRPC/third_party/protobuf/cmake/win/Debug/protoc.exe 
-        -I ${CMAKE_SOURCE_DIR}/protos/sync 
+        -I ${CMAKE_SOURCE_DIR}/protos/guide 
         --grpc_out=${CMAKE_SOURCE_DIR}/sync/client/src 
 		--grpc_out=${CMAKE_SOURCE_DIR}/sync/server/src
         --cpp_out=${CMAKE_SOURCE_DIR}/sync/client/src 
 	    --cpp_out=${CMAKE_SOURCE_DIR}/sync/server/src 
         --plugin=protoc-gen-grpc=${CMAKE_SOURCE_DIR}/thirdparty/gRPC/vsprojects/x64/Debug/grpc_cpp_plugin.exe  
-        ${CMAKE_SOURCE_DIR}/protos/sync/sync.proto)
+        ${CMAKE_SOURCE_DIR}/protos/guide/hello.proto)
 
 ELSEIF(CMAKE_SYSTEM_NAME MATCHES "Linux")
 	SET(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} -static-libgcc  -static-libstdc++")

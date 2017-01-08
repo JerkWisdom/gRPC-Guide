@@ -4,7 +4,7 @@
 #include <memory>
 #include <string>
 #include <grpc++/grpc++.h>
-#include "sync.grpc.pb.h"
+#include "hello.grpc.pb.h"
 
 using grpc::Channel;
 using grpc::ClientContext;

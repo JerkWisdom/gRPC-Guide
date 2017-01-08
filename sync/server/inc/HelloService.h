@@ -3,7 +3,7 @@
 
 #include <string>
 #include <grpc++/grpc++.h>
-#include "sync.grpc.pb.h"
+#include "hello.grpc.pb.h"
 
 using grpc::Server;
 using grpc::ServerBuilder;
