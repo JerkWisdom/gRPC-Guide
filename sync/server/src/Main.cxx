@@ -7,7 +7,7 @@ void runServer()
 	std::cout << "server run at 0.0.0.0:50051" << std::endl;
 
 	std::string serverAddress("0.0.0.0:50051");
-	guide::GreeterService service;
+	guide::HelloService service;
 
 	ServerBuilder builder;
 	builder.AddListeningPort(serverAddress, grpc::InsecureServerCredentials());

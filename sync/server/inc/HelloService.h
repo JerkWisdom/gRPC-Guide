@@ -13,7 +13,7 @@ using guide::HelloResponse;
 using guide::HelloRequest;
 using guide::HelloSvc;
 
-namespace pro{
+namespace guide{
 	class HelloService : public HelloSvc::Service
 	{
 	public:
