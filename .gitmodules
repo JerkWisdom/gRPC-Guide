@@ -1,0 +1,3 @@
+[submodule "thirdparty/gRPC"]
+	path = thirdparty/gRPC
+	url = git@github.com:grpc/grpc.git
