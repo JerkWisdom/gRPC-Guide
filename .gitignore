@@ -30,6 +30,7 @@
 
 # Build
 /build
+/thirdparty
 
 # gRPC
 *.pb.cc

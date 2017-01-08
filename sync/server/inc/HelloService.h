@@ -3,22 +3,22 @@
 
 #include <string>
 #include <grpc++/grpc++.h>
-#include "app.grpc.pb.h"
+#include "sync.grpc.pb.h"
 
 using grpc::Server;
 using grpc::ServerBuilder;
 using grpc::ServerContext;
 using grpc::Status;
-using app::HelloResponse;
-using app::HelloRequest;
-using app::Greeter;
+using guide::HelloResponse;
+using guide::HelloRequest;
+using guide::HelloSvc;
 
 namespace pro{
-	class GreeterService : public Greeter::Service
+	class HelloService : public HelloSvc::Service
 	{
 	public:
-		GreeterService() = default;
-		~GreeterService() = default;
+		HelloService() = default;
+		~HelloService() = default;
 
 		virtual Status sayHello(ServerContext* context, const HelloRequest* req, HelloResponse* rsp) override;
 	};

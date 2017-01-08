@@ -1,10 +1,9 @@
-#include "GreeterClient.h"
-#include "RequestHandler.h"
+#include "HelloClient.h"
 
-std::string pro::GreeterClient::sayHello(std::string user)
+std::string guide::HelloClient::sayHello(std::string user)
 {
 	HelloRequest req;
-	req.set_name(pro::getRequestHandler()->getRequest(user));
+	req.set_name(user);
 
 	HelloResponse rsp;
 	ClientContext ctx;
