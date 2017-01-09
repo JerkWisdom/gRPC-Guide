@@ -16,13 +16,12 @@ FILE(GLOB HEADERS "src/*.h")
 SOURCE_GROUP("Header Files" FILES ${INCS} ${HEADERS})
 
 ADD_EXECUTABLE(client ${DIR_SRCS} ${HEADERS} ${INCS} ${GRPCS})
-ADD_DEPENDENCIES(client dynamic utils)
 
-SET_TARGET_PROPERTIES(client PROPERTIES FOLDER "App/gRPC")
+SET_TARGET_PROPERTIES(client PROPERTIES FOLDER "async")
 
 IF(CMAKE_SYSTEM_NAME MATCHES "Windows") 
 	ADD_DEFINITIONS(/D"_WIN32_WINNT=0x601")
-	TARGET_LINK_LIBRARIES(client dynamic utils gpr grpc grpc++ protoc protobuf eay32 ssleay32 zlib ws2_32)
+	TARGET_LINK_LIBRARIES(client gpr grpc grpc++ protoc protobuf eay32 ssleay32 zlib ws2_32)
 ELSE(CMAKE_SYSTEM_NAME MATCHES "Linux")
-	TARGET_LINK_LIBRARIES(client dynamic utils gpr grpc grpc++ protoc protobuf eay32 ssleay32 zlib)
+	TARGET_LINK_LIBRARIES(client gpr grpc grpc++ protoc protobuf eay32 ssleay32 zlib)
 ENDIF(CMAKE_SYSTEM_NAME MATCHES "Windows")	
