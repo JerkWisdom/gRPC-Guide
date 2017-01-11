@@ -1,30 +1,30 @@
-#ifndef __CLIENT_INC_CLIENT_H__
-#define __CLIENT_INC_CLIENT_H__
-
+#pragma once
 #include <memory>
 #include <string>
+#include <stdint.h>
 #include <grpc++/grpc++.h>
-#include "app.grpc.pb.h"
+#include "hello.grpc.pb.h"
 
 using grpc::Channel;
 using grpc::ClientContext;
 using grpc::Status;
-using app::HelloRequest;
-using app::HelloResponse;
-using app::Greeter;
+using guide::HelloRequest;
+using guide::HelloResponse;
+using guide::HelloSvc;
 
-namespace pro {
-	class GreeterClient
+namespace guide {
+	class HelloClient
 	{
 	public:
-		GreeterClient(std::shared_ptr<Channel> channel)
-			: _stub(Greeter::NewStub(channel)) { }
-		~GreeterClient() = default;
+		HelloClient(std::shared_ptr<Channel> channel)
+			: _stub(HelloSvc::NewStub(channel))
+		{ 
+		}
+		~HelloClient() = default;
 
 		std::string sayHello(const std::string name);
 
 	private:
-		std::unique_ptr<Greeter::Stub> _stub;
+		std::unique_ptr<HelloSvc::Stub> _stub;
 	};
 }
-#endif // __CLIENT_INC_CLIENT_H__

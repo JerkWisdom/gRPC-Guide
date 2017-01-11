@@ -1,7 +1,5 @@
 INCLUDE_DIRECTORIES(${CMAKE_CURRENT_SOURCE_DIR}/inc
 					${CMAKE_CURRENT_SOURCE_DIR}/src
-					${CMAKE_SOURCE_DIR}/util/inc
-					${CMAKE_SOURCE_DIR}/dynamic/inc
 					${CMAKE_SOURCE_DIR}/thirdparty/gRPC/include
 					${CMAKE_SOURCE_DIR}/thirdparty/gRPC/third_party/protobuf/src
 					)

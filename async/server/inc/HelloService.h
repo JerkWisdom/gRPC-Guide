@@ -1,27 +1,29 @@
-#ifndef __SERVER_INC_CLIENT_H__
-#define __SERVER_INC_CLIENT_H__
-
+#pragma once
 #include <string>
 #include <grpc++/grpc++.h>
-#include "app.grpc.pb.h"
+#include "hello.grpc.pb.h"
 
 using grpc::Server;
 using grpc::ServerBuilder;
 using grpc::ServerContext;
 using grpc::Status;
-using app::HelloResponse;
-using app::HelloRequest;
-using app::Greeter;
+using guide::HelloResponse;
+using guide::HelloRequest;
+using guide::HelloSvc;
 
-namespace pro{
-	class GreeterService : public Greeter::Service
+namespace guide {
+	class HelloService
 	{
 	public:
-		GreeterService() = default;
-		~GreeterService() = default;
+		HelloService();
+		~HelloService();
 
-		virtual Status sayHello(ServerContext* context, const HelloRequest* req, HelloResponse* rsp) override;
+		void run(const std::string &addr);
+		void handleRPCs();
+
+	private:
+		HelloSvc::AsyncService                       _service;
+		std::unique_ptr<grpc::ServerCompletionQueue> _cq;
+		std::unique_ptr<grpc::Server>                _server;
 	};
 }
-
-#endif // __SERVER_INC_CLIENT_H__

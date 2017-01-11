@@ -1,18 +1,11 @@
-#include "GreeterClient.h"
-
-void runClient()
-{
-	pro::GreeterClient greeter(grpc::CreateChannel(
-		"localhost:50051", grpc::InsecureChannelCredentials()));
-	std::string user("John");
-	std::string rsp = greeter.sayHello(user);
-	std::cout << "Greeter Client Received: " << rsp << std::endl;
-
-}
+#include "HelloClient.h"
 
 int main(int argc, char* argv[])
 {
-	runClient();
+	guide::HelloClient client(grpc::CreateChannel(
+		"localhost:55555", grpc::InsecureChannelCredentials()));
+	std::string user("John");
+	std::string rsp = client.sayHello(user);
 
 	getchar();
 	return 0;
